@@ -22,7 +22,7 @@ namespace Excercise_1
         String Type { get => "Composed"; }
 
         public void Add(SingleMission mission) {
-            listMissions[] 
+            listMissions.Add(mission);
         }
         
         public double Calculate(double value)
