@@ -11,7 +11,7 @@ namespace Excercise_1
         private string myMissionName;
         private FuncDelegate myFunc;
 
-        public SingleMission(string mission, FuncDelegate function)
+        public SingleMission(FuncDelegate function, string mission) 
         {
             myMissionName = mission;
             myFunc = function;
