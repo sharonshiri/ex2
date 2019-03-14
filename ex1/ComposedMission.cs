@@ -9,25 +9,31 @@ namespace Excercise_1
     public class ComposedMission : IMission
     {
         private string myMissionName;
-        private FuncDelegate myFunc;
-        private List<SingleMission> listMissions = new List<SingleMission>();
+        private List<FuncDelegate> listMissions = new List<FuncDelegate>();
+        private event EventHandler<double> OnCalculate; 
         
-        public ComposedMission(FuncDelegate function, string mission)
+        public ComposedMission(string mission)
         {
             myMissionName = mission;
-            myFunc = function;
         }
         
         String Name { get => myMissionName;}
         String Type { get => "Composed"; }
 
-        public void Add(SingleMission mission) {
-            listMissions.Add(mission);
+        public ComposedMission Add(FuncDelegate func) {
+            listMissions.Add(func);
+            return this;
         }
         
         public double Calculate(double value)
         {
-            return myFunc(value);
+            double tempResult = value;
+            foreach (var f in listMissions) {
+                tempResult = f(tempResult);
+            }
+            OnCalculate?.Invoke(this,  tempResult);
+            return tempResult;
         }
+        
     }
 }

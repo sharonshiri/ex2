@@ -14,8 +14,21 @@ namespace Excercise_1
 
         public FuncDelegate this[string funcName]
         {
-            get { return functionsDictionary[funcName]; }
+            get
+            {
+                if (!functionsDictionary.ContainsKey(funcName))
+                {
+                    functionsDictionary[funcName] = val => val;
+                }
+
+                return functionsDictionary[funcName];
+            }
             set { functionsDictionary[funcName] = value; }
+        }
+
+        public List<IMission> getAllMissions()
+        {
+            for ()
         }
     }
 }

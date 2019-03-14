@@ -75,9 +75,7 @@ namespace Excercise_1
 
             SingleMission mission3 = new SingleMission(funcList["Double"], "mission3");
 
-            ComposedMission mission4 = new ComposedMission("mission4")
-                .Add(funcList["Triple"])
-                .Add(funcList["Stam"])              // Notice that this function does not exist and still it works
+            ComposedMission mission4 = new ComposedMission("mission4").Add(funcList["Triple"]).Add(funcList["Stam"])   // Notice that this function does not exist and still it works
                 .Add(funcList["Plus2"]);
 
             PrintAvailableFunctions(funcList);

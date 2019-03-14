@@ -22,7 +22,9 @@ namespace Excercise_1
         
         public double Calculate(double value)
         {
-            return myFunc(value);
+            double result = myFunc(value);
+            OnCalculate?.Invoke(this,  result);
+            return result;
         }
     }
 }
